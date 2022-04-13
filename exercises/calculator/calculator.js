@@ -1,6 +1,6 @@
 function calculator(num1, num2) {
-  num1 = prompt("Choose the first number:");
-  num2 = prompt("Choose the second number:");
+  const num1 = prompt("Choose the first number:");
+  const num2 = prompt("Choose the second number:");
   function reset() {
     alert("You didn't input valid numbers, try again.");
     return calculator();
@@ -8,8 +8,8 @@ function calculator(num1, num2) {
   if (num1 === null && num2 === null) {
     reset();
   } else {
-    floatNum1 = parseFloat(num1);
-    floatNum2 = parseFloat(num2);
+    const floatNum1 = parseFloat(num1);
+    const floatNum2 = parseFloat(num2);
     if (isNaN(floatNum1) & isNaN(floatNum2)) {
       reset();
     } else if (isNaN(floatNum1) & !isNaN(floatNum2)) {

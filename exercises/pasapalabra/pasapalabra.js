@@ -1,3 +1,4 @@
+let playerName;
 const pasapalabraGame = () => {
   const questions = [
     {
@@ -182,52 +183,7 @@ const pasapalabraGame = () => {
 
   let exitGame = false;
 
-  const coreGame = () => {
-    const playerName = getPlayerName();
-    alert(
-      `${playerName}, en este juego debes acertar una palabra que empiece o contenga cada una de las letras del abecedario en español.\n` +
-        `Para ello, deberás responder a una pregunta por cada letra hasta terminar el rosco (nos son necesarias las tildes).\n` +
-        `* Si no sabes la palabra, puedes pasar a la siguiente respondiendo "pasalabra".\n` +
-        `* Si quieres salir del juego, puedes responder "salir".\n\n¡Empecemos!`
-    );
-    let userAnswer;
-    do {
-      for (let i = 0; i < questions.length; i++) {
-        if (questions[i].status === 0 && !exitGame) {
-          do {
-            userAnswer = prompt(questions[i].question);
-          } while (!userAnswer);
-          if (userAnswer.toLowerCase() === questions[i].answer) {
-            alert("¡Enhorabuena, has acertado la palabra, ganas 1 punto!");
-            questions[i].status = 1;
-          } else if (userAnswer.toLowerCase() === "end") {
-            exitGame = true;
-          } else if (userAnswer.toLowerCase() === "pasapalabra") {
-            alert("¡Pasas de palabra!");
-          } else {
-            alert(
-              `¡Has fallado, pierdes un punto! La respuesta correcta era ${questions[i].answer}.`
-            );
-            questions[i].status = -1;
-          }
-        }
-      }
-    } while (!completenessCheck() && !exitGame);
-    {
-      if (exitGame) {
-        alert(`Has finalizado la partida con ${checkPoints()} puntos.`);
-      }
-    }
-    if (completenessCheck()) {
-      alert(`Has finalizado la partida con ${checkPoints()} puntos.`);
-      mainRanking();
-    }
-  };
-
   const getPlayerName = () => {
-    const playerName = prompt(
-      "¡Bienvenido al juego del Pasapalabra! ¿Cual es tu nombre?"
-    );
     if (!playerName) {
       return getPlayerName();
     }
@@ -252,7 +208,7 @@ const pasapalabraGame = () => {
   };
 
   const mainRanking = () => {
-    let ranking = [
+    const ranking = [
       { name: "Miguel Hernández", score: 26 },
       { name: "Antonio Machado", score: 24 },
       { name: "Rafael Alberti", score: 21 },
@@ -260,7 +216,36 @@ const pasapalabraGame = () => {
       { name: "Garcilaso de la Vega", score: 12 },
       { name: "Juan Ramón Jiménez", score: 7 },
     ];
-    alert(ranking);
+    return ranking;
+  };
+
+  const coreGame = () => {
+    playerName = getPlayerName();
+
+    let userAnswer;
+    do {
+      for (let i = 0; i < questions.length; i++) {
+        if (questions[i].status === 0 && !exitGame) {
+          do {
+            userAnswer = questions[i].question;
+          } while (!userAnswer);
+          if (userAnswer.toLowerCase() === questions[i].answer) {
+            questions[i].status = 1;
+          } else if (userAnswer.toLowerCase() === "end") {
+            exitGame = true;
+          } else if (userAnswer.toLowerCase() === "pasapalabra") {
+            return;
+          } else {
+            questions[i].status = -1;
+          }
+        }
+      }
+    } while (!completenessCheck() && !exitGame);
+
+    if (completenessCheck()) {
+      mainRanking();
+      checkPoints();
+    }
   };
 
   coreGame();
