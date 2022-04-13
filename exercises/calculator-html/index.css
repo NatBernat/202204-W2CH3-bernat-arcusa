@@ -1,13 +1,44 @@
 * {
     background-color: rgb(122, 115, 124);
+    font-family: tahoma;
+    margin: auto;
 }
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
+.calculator {
+    border: 2px solid black;
 }
-.screen {
+.button {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #725AC1;
+    cursor: pointer;
+    border: 1px solid rgb(100, 100, 100);    
+    width: 75px;
+    height: 60px;
+    background-color: rgb(200, 200, 200);
+    color: black;
+}
+
+.buttonLarge {
+    width: 150px;
+    padding: 0;
+}
+
+.button:hover {
+    background-color: rgb(175, 175, 175)
+}
+
+.button:active {
+    background-color: rgb(125, 125, 125);
+}
+.operator {
+    background-color: rgb(200, 100, 0);
+    color: white;
+}
+#display {
     background-color: rgb(20, 20, 40);
     font-size: 30px;
     width: 300px;
@@ -16,40 +47,6 @@
     color:rgb(210, 255, 128);
     margin: 0px;
 }
-button {
-    cursor: pointer;
-    border: 1px solid rgb(100, 100, 100);
-    font-size: 20px;
-    font-family: tahoma;
-}
-.buttons {
-    display: grid;
-    grid-template-columns: 75px 75px 75px 75px;
-    grid-template-rows: 60px 60px 60px 60px 60px;
-    width: 300px;
-    height: 300px;
-}
-.big-button {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    background-color: rgb(200, 200, 200);
-}
-.common-button {
-    background-color: rgb(200, 200, 200);
-}
-.big-button:hover, .common-button:hover {
-    background-color: rgb(175, 175, 175)
-}
-.big-button:active, .common-button:active {
-    background-color: rgb(125, 125, 125);
-}
-.math-button {
-    background-color: rgb(200, 100, 0);
-    color: white;
-}
-.math-button:hover {
-    background-color: rgb(175, 90, 0);
-}
-.math-button:active {
-    background-color: rgb(125, 50, 0);
-}
+/* td { 
+    padding: 0; 
+} */
