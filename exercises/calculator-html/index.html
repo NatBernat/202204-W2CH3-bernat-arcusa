@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script type="text/javascript" src="index.js"></script>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <table id="calculator" class="calculator">
+      <tr>
+        <td colspan="4">
+          <input
+            type="text"
+            id="display"
+            name="display"
+            placeholder="0"
+            readonly+
+          />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button onclick="reset()" class="button buttonLarge">AC</button>
+        </td>
+        <td><button class="button" onclick="deleteNumber()">⟲</button></td>
+        <td>
+          <button class="operator button" onclick="getOperation('/')">÷</button>
+        </td>
+      </tr>
+      <tr>
+        <td><button onclick="getNumber(7)" class="button">7</button></td>
+        <td><button onclick="getNumber(8)" class="button">8</button></td>
+        <td><button onclick="getNumber(9)" class="button">9</button></td>
+        <td>
+          <button class="operator button" onclick="getOperation('*')">x</button>
+        </td>
+      </tr>
+      <tr>
+        <td><button onclick="getNumber(4)" class="button">4</button></td>
+        <td><button onclick="getNumber(5)" class="button">5</button></td>
+        <td><button onclick="getNumber(6)" class="button">6</button></td>
+        <td>
+          <button class="operator button" onclick="getOperation('-')">-</button>
+        </td>
+      </tr>
+      <tr>
+        <td><button onclick="getNumber(1)" class="button">1</button></td>
+        <td><button onclick="getNumber(2)" class="button">2</button></td>
+        <td><button onclick="getNumber(3)" class="button">3</button></td>
+        <td>
+          <button class="operator button" onclick="getOperation('+')">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button onclick="getNumber(0)" class="button buttonLarge">0</button>
+        </td>
+        <td><button class="button" onclick="getNumber('.')">,</button></td>
+        <td><button class="operator button" onclick="equal()">=</button></td>
+      </tr>
+    </table>
+  </body>
+</html>
