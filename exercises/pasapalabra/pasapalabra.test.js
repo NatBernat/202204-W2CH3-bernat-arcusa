@@ -1,4 +1,4 @@
-let playerName;
+const playerName = "";
 const pasapalabraGame = () => {
   const questions = [
     {
@@ -184,9 +184,6 @@ const pasapalabraGame = () => {
   let exitGame = false;
 
   const getPlayerName = () => {
-    if (!playerName) {
-      return getPlayerName();
-    }
     return playerName;
   };
 
@@ -252,3 +249,43 @@ const pasapalabraGame = () => {
 };
 
 pasapalabraGame();
+
+describe("Given the getPlayerName function", () => {
+  describe("When it's called with a playerName 'Paco'", () => {
+    test("Then it will return the playerName value", () => {
+      const getPlayerName = "John";
+      expectedResult = "John";
+
+      result = getPlayerName();
+
+      expect(result).toBe(expectedResult);
+    });
+  });
+});
+
+describe("Given the mainRanking function", () => {
+  describe("When it's called", () => {
+    test("Then it will return the ranking list", () => {
+      const ranking = [
+        { name: "Miguel Hernández", score: 26 },
+        { name: "Antonio Machado", score: 24 },
+        { name: "Rafael Alberti", score: 21 },
+        { name: "Rosalía de Castro", score: 17 },
+        { name: "Garcilaso de la Vega", score: 12 },
+        { name: "Juan Ramón Jiménez", score: 7 },
+      ];
+      expectedResult = [
+        { name: "Miguel Hernández", score: 26 },
+        { name: "Antonio Machado", score: 24 },
+        { name: "Rafael Alberti", score: 21 },
+        { name: "Rosalía de Castro", score: 17 },
+        { name: "Garcilaso de la Vega", score: 12 },
+        { name: "Juan Ramón Jiménez", score: 7 },
+      ];
+
+      result = mainRanking();
+
+      expect(result).toBe(expectedResult);
+    });
+  });
+});
